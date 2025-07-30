@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 
 import DataHour from '../interface/DataHour';
 
-export default function HydrologyTable( { data } : { data: DataHour[] } ) {
+export default function HydrologyTable({ data }: { data: DataHour[] }) {
 
   let [rows, setRows] = useState(Array<DataHour>)
 
@@ -26,23 +26,24 @@ export default function HydrologyTable( { data } : { data: DataHour[] } ) {
               {row.Fecha}
             </TableCell>
             <TableCell align="center">{row.Mazar}</TableCell>
-            
+            <TableCell align="center">{row.Molino}</TableCell>
+            <TableCell align="center">{row.Sopladora}</TableCell>
             {/* PENDIENTE: Valores a renderizar en cada celda  */}
-            
-            
+
+
           </TableRow>
         ))
       )
     } else {
       return <TableRow><TableCell>No data</TableCell></TableRow>
     }
-      
+
   }
 
-  useEffect( ()=> {
+  useEffect(() => {
     setRows(data)
   }, [data])
-  
+
 
   return (
     <TableContainer component={Paper}>
@@ -51,9 +52,12 @@ export default function HydrologyTable( { data } : { data: DataHour[] } ) {
           <TableRow>
             <TableCell>Fecha</TableCell>
             <TableCell align='center'>Mazar</TableCell>
+            <TableCell align='center'>Molino</TableCell>
+            <TableCell align='center'>Sopladora</TableCell>
             
+
             {/* PENDIENTE: Cabeceras de las columnas  */}
-            
+
 
           </TableRow>
         </TableHead>
